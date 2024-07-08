@@ -35,4 +35,4 @@ jobs:
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           name: ""
-          github-token: ${{ secrets.GITHUB_PAT }}
+          github-token: ${{ secrets.PAT }}
