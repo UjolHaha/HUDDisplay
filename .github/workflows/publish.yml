@@ -1,8 +1,6 @@
 name: "Build and publish"
 
-on:
-  release:
-    types: [push]
+on: [pull_request, workflow_dispatch]
 
 permissions:
   contents: write
