@@ -6,19 +6,23 @@
 name: Publish on GitHub
 on: [pull_request, push]
 
+permissions:
+  contents: write
+
 jobs:
   build:
+    name: "Build"
     strategy:
       matrix:
         # Use these Java versions
         java: [
           21,    # Current Java LTS
         ]
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
       - name: Validate Gradle Wrapper
         uses: gradle/wrapper-validation-action@v2
       - name: Setup JDK ${{ matrix.java }}
@@ -37,7 +41,23 @@ jobs:
           name: Artifacts
           path: build/libs/
 
-      - name: Publish to Github
-        uses: Kir-Antipov/mc-publish@v3.3
+  publish:
+    name: "Publish"
+    needs: "build"
+    runs-on: "ubuntu-latest"
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/download-artifact@v3
         with:
+          name: build
+          path: build/libs
+      - uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          files: build/libs/!(*-@(dev|sources|javadoc)).jar
+          
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-files: |
+            build/libs/!(*-@(dev|sources|javadoc)).jar
+            build/libs/*-@(dev|sources|javadoc).jar
