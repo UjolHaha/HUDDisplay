@@ -1,0 +1,66 @@
+{
+  "config.huddisplay.title": "HUD Display Configuration",
+
+  "config.huddisplay.playerCoordinates": "Player Coordinates",
+  "config.huddisplay.playerCoordinates.textColor": "Coordinates Text Color",
+  "config.huddisplay.playerCoordinates.backgroundColor": "Coordinates Background Color",
+  "config.huddisplay.playerCoordinates.xPercentage": "Coordinates X Percentage Hud",
+  "config.huddisplay.playerCoordinates.yPercentage": "Coordinates Y Percentage Hud",
+
+  "config.huddisplay.armorItem": "Armor and Item",
+  "config.huddisplay.armorItem.textColor": "Armor and Item Text Color",
+  "config.huddisplay.armorItem.backgroundColor": "Armor and Item Background Color",
+  "config.huddisplay.armorItem.xPercentage": "Armor and Item X Percentage Hud",
+  "config.huddisplay.armorItem.yPercentage": "Armor and Item Y Percentage Hud",
+
+  "config.huddisplay.elytra": "Elytra",
+  "config.huddisplay.elytra.textColor": "Elytra Text Color",
+  "config.huddisplay.elytra.backgroundColor": "Elytra Background Color",
+  "config.huddisplay.elytra.xPercentage": "Elytra X Percentage Hud",
+  "config.huddisplay.elytra.yPercentage": "Elytra Y Percentage Hud",
+
+  "config.huddisplay.timeDisplay": "Time Display",
+  "config.huddisplay.timeDisplay.textColor": "Time Display Text Color",
+  "config.huddisplay.timeDisplay.backgroundColor": "Time Display Background Color",
+  "config.huddisplay.timeDisplay.xPercentage": "Time Display X Percentage Hud",
+  "config.huddisplay.timeDisplay.yPercentage": "Time Display Y Percentage Hud",
+
+  "config.huddisplay.fpsDisplay": "FPS Display",
+  "config.huddisplay.fpsDisplay.textColor": "FPS Display Text Color",
+  "config.huddisplay.fpsDisplay.backgroundColor": "FPS Display Background Color",
+  "config.huddisplay.fpsDisplay.xPercentage": "FPS Display X Percentage Hud",
+  "config.huddisplay.fpsDisplay.yPercentage": "FPS Display Y Percentage Hud",
+
+  "config.huddisplay.about": "About",
+  "key.hud": "Configuration Menu",
+
+  "yacl3.config.huddisplay:config.category.coordinate": "Player Coordinate",
+  "yacl3.config.huddisplay:config.coordinateXPercentage": "Coordinates X Percentage",
+  "yacl3.config.huddisplay:config.coordinateYPercentage": "Coordinates Y Percentage",
+  "yacl3.config.huddisplay:config.coordinateTextColor": "Coordinates Text Color",
+  "yacl3.config.huddisplay:config.coordinateBgColor": "Coordinates Background Color",
+
+  "yacl3.config.huddisplay:config.category.armorAndItem": "Armor and Item",
+  "yacl3.config.huddisplay:config.armorAndItemXPercentage": "Armor and Item X Percentage",
+  "yacl3.config.huddisplay:config.armorAndItemYPercentage": "Armor and Item Y Percentage",
+  "yacl3.config.huddisplay:config.armorAndItemTextColor": "Armor and Item Text Color",
+  "yacl3.config.huddisplay:config.armorAndItemBgColor": "Armor and Item Background Color",
+
+  "yacl3.config.huddisplay:config.category.elytra": "Elytra",
+  "yacl3.config.huddisplay:config.elytraXPercentage": "Elytra X Percentage",
+  "yacl3.config.huddisplay:config.elytraYPercentage": "Elytra Y Percentage",
+  "yacl3.config.huddisplay:config.elytraTextColor": "Elytra Text Color",
+  "yacl3.config.huddisplay:config.elytraBgColor": "Elytra Background Color",
+
+  "yacl3.config.huddisplay:config.category.time": "Time",
+  "yacl3.config.huddisplay:config.timeXPercentage": "Time X Percentage",
+  "yacl3.config.huddisplay:config.timeYPercentage": "Time Y Percentage",
+  "yacl3.config.huddisplay:config.timeTextColor": "Time Text Color",
+  "yacl3.config.huddisplay:config.timeBgColor": "Time Background Color",
+
+  "yacl3.config.huddisplay:config.category.fps": "FPS",
+  "yacl3.config.huddisplay:config.fpsXPercentage": "FPS X Percentage",
+  "yacl3.config.huddisplay:config.fpsYPercentage": "FPS Y Percentage",
+  "yacl3.config.huddisplay:config.fpsTextColor": "FPS Text Color",
+  "yacl3.config.huddisplay:config.fpsBgColor": "FPS Background Color"
+}
