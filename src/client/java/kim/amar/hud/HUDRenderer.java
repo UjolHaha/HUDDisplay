@@ -1,5 +1,6 @@
 package kim.amar.hud;
 
+import kim.amar.config.HUDConfig;
 import kim.amar.hud.renderer.CoordinatesRenderer;
 import kim.amar.hud.renderer.EquipmentsRenderer;
 import kim.amar.hud.renderer.FPSRenderer;
@@ -17,10 +18,13 @@ public class HUDRenderer implements HudRenderCallback {
     public void onHudRender(DrawContext drawContext, RenderTickCounter tickCounter) {
         if (client != null) {
             assert client.player != null;
-            new FPSRenderer(drawContext);
-            new CoordinatesRenderer(client.player, drawContext);
-            new TimeRenderer(client.player, drawContext);
-            new EquipmentsRenderer(client.player, drawContext);
+            HUDConfig config = HUDConfig.instance();
+            if (config.enabled) {
+                new FPSRenderer(drawContext);
+                new CoordinatesRenderer(client.player, drawContext);
+                new TimeRenderer(client.player, drawContext);
+                new EquipmentsRenderer(client.player, drawContext);
+            }
         }
     }
 }

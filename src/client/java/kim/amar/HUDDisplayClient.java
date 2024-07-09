@@ -16,6 +16,7 @@ public class HUDDisplayClient implements ClientModInitializer {
     public void onInitializeClient() {
         LOGGER.info("Initializing HUDDisplay");
 
+        HUDConfig.load();
         HudRenderCallback.EVENT.register(new HUDRenderer());
         HUDDisplayKeyBinding.register();
         ClientTickEvents.END_CLIENT_TICK.register(client -> {

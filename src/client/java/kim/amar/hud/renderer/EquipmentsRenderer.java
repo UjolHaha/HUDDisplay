@@ -20,8 +20,12 @@ import java.util.ArrayList;
 public class EquipmentsRenderer extends Renderer {
     public EquipmentsRenderer(ClientPlayerEntity player, DrawContext drawContext) {
         HUDConfig config = HUDConfig.instance();
-        renderArmorAndHands(player, drawContext, config);
-        renderElytra(player, drawContext, config);
+        if (config.armorAndItemEnabled) {
+            renderArmorAndHands(player, drawContext, config);
+        }
+        if (config.elytraTimeEnabled) {
+            renderElytra(player, drawContext, config);
+        }
     }
 
     private void renderArmorAndHands(ClientPlayerEntity player, DrawContext drawContext, HUDConfig config) {
@@ -45,7 +49,7 @@ public class EquipmentsRenderer extends Renderer {
         int x = (int) (client.getWindow().getScaledWidth() * config.armorAndItemXPercentage / 100.0);
         int y = (int) (client.getWindow().getScaledHeight() * config.armorAndItemYPercentage / 100.0);
         String widestText = getWidestItemText(equipments);
-        int widthBackground = textRenderer.getWidth(widestText);
+        int widthBackground = calculateBackgroundWidth(widestText);
 
         if (!equippedItems.isEmpty()) {
             renderBackground(drawContext, x - 3, y - 3, 25 + widthBackground, 16 * equippedItems.size() + 6, config.armorAndItemBgColor);
@@ -69,12 +73,13 @@ public class EquipmentsRenderer extends Renderer {
             int unbreakingLevel = EnchantmentHelper.getLevel(entry, chestplate);
             int timeRemaining = determineTimeLeft(chestplate) - unbreakingLevel;
             String elytraTimeLeftString = formatTime(timeRemaining);
+            int elytraTimeLeftWidth = calculateBackgroundWidth(elytraTimeLeftString);
 
-            int x = (int) ((client.getWindow().getScaledWidth() - calculateBackgroundWidth(elytraTimeLeftString)) * config.elytraXPercentage / 100.0) - 3;
-            int y = (int) (client.getWindow().getScaledHeight() * config.elytraYPercentage / 100.0) - 3;
+            int x = (int) ((client.getWindow().getScaledWidth()) * config.elytraTimeXPercentage / 100.0) - 3;
+            int y = (int) (client.getWindow().getScaledHeight() * config.elytraTimeYPercentage / 100.0) - 3;
 
-            renderBackground(drawContext, x, y, calculateBackgroundWidth(elytraTimeLeftString) + 10, 17, config.elytraBgColor);
-            renderText(drawContext, Text.of(elytraTimeLeftString), x + 5, y + 5, config.elytraTextColor);
+            renderBackground(drawContext, x, y, elytraTimeLeftWidth + 10, 17, config.elytraTimeBgColor);
+            renderText(drawContext, Text.of(elytraTimeLeftString), x + 5, y + 5, config.elytraTimeTextColor);
         }
     }
 

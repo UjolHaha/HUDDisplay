@@ -3,6 +3,7 @@ package kim.amar.config;
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
+import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.autogen.ColorField;
 import dev.isxander.yacl3.config.v2.api.autogen.IntSlider;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
@@ -21,6 +22,15 @@ public class HUDConfig {
                     .build())
             .build();
 
+    @AutoGen(category = "general")
+    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+    @SerialEntry
+    public boolean enabled = true;
+
+    @AutoGen(category = "coordinate")
+    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+    @SerialEntry
+    public boolean coordinateEnabled = true;
     @AutoGen(category = "coordinate")
     @IntSlider(min = 1, max = 100, step = 1)
     @SerialEntry
@@ -28,7 +38,7 @@ public class HUDConfig {
     @AutoGen(category = "coordinate")
     @IntSlider(min = 1, max = 100, step = 1)
     @SerialEntry
-    public int coordinateYPercentage = 2;
+    public int coordinateYPercentage = 8;
     @AutoGen(category = "coordinate")
     @ColorField(allowAlpha = true)
     @SerialEntry
@@ -38,6 +48,10 @@ public class HUDConfig {
     @SerialEntry
     public Color coordinateBgColor = new Color(0x80000000, true);
 
+    @AutoGen(category = "armorAndItem")
+    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+    @SerialEntry
+    public boolean armorAndItemEnabled = true;
     @AutoGen(category = "armorAndItem")
     @IntSlider(min = 1, max = 100, step = 1)
     @SerialEntry
@@ -55,27 +69,35 @@ public class HUDConfig {
     @SerialEntry
     public Color armorAndItemBgColor = new Color(0x80000000, true);
 
-    @AutoGen(category = "elytra")
+    @AutoGen(category = "elytraTime")
+    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+    @SerialEntry
+    public boolean elytraTimeEnabled = true;
+    @AutoGen(category = "elytraTime")
     @IntSlider(min = 1, max = 100, step = 1)
     @SerialEntry
-    public int elytraXPercentage = 20;
-    @AutoGen(category = "elytra")
+    public int elytraTimeXPercentage = 7;
+    @AutoGen(category = "elytraTime")
     @IntSlider(min = 1, max = 100, step = 1)
     @SerialEntry
-    public int elytraYPercentage = 8;
-    @AutoGen(category = "elytra")
+    public int elytraTimeYPercentage = 2;
+    @AutoGen(category = "elytraTime")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color elytraTextColor = Color.white;
-    @AutoGen(category = "elytra")
+    public Color elytraTimeTextColor = Color.white;
+    @AutoGen(category = "elytraTime")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color elytraBgColor = new Color(0x80000000, true);
+    public Color elytraTimeBgColor = new Color(0x80000000, true);
 
+    @AutoGen(category = "time")
+    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+    @SerialEntry
+    public boolean timeEnabled = true;
     @AutoGen(category = "time")
     @IntSlider(min = 1, max = 100, step = 1)
     @SerialEntry
-    public int timeXPercentage = 20;
+    public int timeXPercentage = 1;
     @AutoGen(category = "time")
     @IntSlider(min = 1, max = 100, step = 1)
     @SerialEntry
@@ -89,6 +111,10 @@ public class HUDConfig {
     @SerialEntry
     public Color timeBgColor = new Color(0x80000000, true);
 
+    @AutoGen(category = "fps")
+    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+    @SerialEntry
+    public boolean fpsEnabled = true;
     @AutoGen(category = "fps")
     @IntSlider(min = 1, max = 100, step = 1)
     @SerialEntry
