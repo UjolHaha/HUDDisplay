@@ -32,7 +32,7 @@ public class HUDConfig {
     @AutoGen(category = "coordinate")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color coordinateTextColor = Color.yellow;
+    public Color coordinateTextColor = Color.white;
     @AutoGen(category = "coordinate")
     @ColorField(allowAlpha = true)
     @SerialEntry
@@ -49,7 +49,7 @@ public class HUDConfig {
     @AutoGen(category = "armorAndItem")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color armorAndItemTextColor = Color.yellow;
+    public Color armorAndItemTextColor = Color.white;
     @AutoGen(category = "armorAndItem")
     @ColorField(allowAlpha = true)
     @SerialEntry
@@ -66,7 +66,7 @@ public class HUDConfig {
     @AutoGen(category = "elytra")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color elytraTextColor = Color.yellow;
+    public Color elytraTextColor = Color.white;
     @AutoGen(category = "elytra")
     @ColorField(allowAlpha = true)
     @SerialEntry
@@ -83,7 +83,7 @@ public class HUDConfig {
     @AutoGen(category = "time")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color timeTextColor = Color.yellow;
+    public Color timeTextColor = Color.white;
     @AutoGen(category = "time")
     @ColorField(allowAlpha = true)
     @SerialEntry
@@ -100,7 +100,7 @@ public class HUDConfig {
     @AutoGen(category = "fps")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color fpsTextColor = Color.yellow;
+    public Color fpsTextColor = Color.white;
     @AutoGen(category = "fps")
     @ColorField(allowAlpha = true)
     @SerialEntry
