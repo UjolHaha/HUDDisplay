@@ -1,7 +1,9 @@
 package kim.amar.hud.renderer;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
 import kim.amar.config.HUDConfig;
-import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.enchantment.Enchantment;
@@ -13,9 +15,6 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 public class EquipmentsRenderer extends Renderer {
     public EquipmentsRenderer(ClientPlayerEntity player, DrawContext drawContext) {
@@ -29,7 +28,6 @@ public class EquipmentsRenderer extends Renderer {
     }
 
     private void renderArmorAndHands(ClientPlayerEntity player, DrawContext drawContext, HUDConfig config) {
-        TextRenderer textRenderer = client.textRenderer;
         ItemStack[] equipments = {
                 player.getEquippedStack(EquipmentSlot.MAINHAND),
                 player.getEquippedStack(EquipmentSlot.HEAD),

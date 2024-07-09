@@ -1,13 +1,14 @@
 package kim.amar.hud.renderer;
 
+import java.awt.Color;
+
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.text.Text;
-
-import java.awt.*;
 
 public class Renderer {
     protected static final MinecraftClient client = MinecraftClient.getInstance();
@@ -26,7 +27,7 @@ public class Renderer {
 
     protected int calculateBackgroundWidth(String... texts) {
         int totalWidth = 0;
-        TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+        TextRenderer textRenderer = client.textRenderer;
         for (String text : texts) {
             totalWidth = Math.max(totalWidth, textRenderer.getWidth(text));
         }

@@ -1,5 +1,7 @@
 package kim.amar.config;
 
+import java.awt.Color;
+
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
@@ -11,8 +13,6 @@ import dev.isxander.yacl3.platform.YACLPlatform;
 import kim.amar.HUDDisplayClient;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
-
-import java.awt.*;
 
 public class HUDConfig {
     public static ConfigClassHandler<HUDConfig> HANDLER = ConfigClassHandler.createBuilder(HUDConfig.class)
