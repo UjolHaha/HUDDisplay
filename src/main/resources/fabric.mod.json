@@ -16,13 +16,13 @@
   "environment": "*",
   "entrypoints": {
     "modmenu": [
-      "kim.amar.ModMenuApiIntegration"
+      "dev.ujol.ModMenuApiIntegration"
     ],
     "main": [
-      "kim.amar.HUDDisplay"
+      "dev.ujol.HUDDisplay"
     ],
     "client": [
-      "kim.amar.HUDDisplayClient"
+      "dev.ujol.HUDDisplayClient"
     ]
   },
   "depends": {

@@ -1,9 +1,8 @@
-package kim.amar;
+package dev.ujol;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-
-import kim.amar.config.HUDConfig;
+import dev.ujol.config.HUDConfig;
 
 public class ModMenuApiIntegration implements ModMenuApi {
     @Override

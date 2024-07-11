@@ -1,4 +1,4 @@
-package kim.amar.hud.renderer;
+package dev.ujol.hud.renderer;
 
 import java.awt.Color;
 

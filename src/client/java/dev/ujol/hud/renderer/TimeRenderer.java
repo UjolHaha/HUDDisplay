@@ -1,6 +1,6 @@
-package kim.amar.hud.renderer;
+package dev.ujol.hud.renderer;
 
-import kim.amar.config.HUDConfig;
+import dev.ujol.config.HUDConfig;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.text.Text;

@@ -1,10 +1,10 @@
-package kim.amar.hud;
+package dev.ujol.hud;
 
-import kim.amar.config.HUDConfig;
-import kim.amar.hud.renderer.CoordinatesRenderer;
-import kim.amar.hud.renderer.EquipmentsRenderer;
-import kim.amar.hud.renderer.FPSRenderer;
-import kim.amar.hud.renderer.TimeRenderer;
+import dev.ujol.config.HUDConfig;
+import dev.ujol.hud.renderer.CoordinatesRenderer;
+import dev.ujol.hud.renderer.EquipmentsRenderer;
+import dev.ujol.hud.renderer.FPSRenderer;
+import dev.ujol.hud.renderer.TimeRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;

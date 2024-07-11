@@ -1,9 +1,6 @@
-package kim.amar.hud.renderer;
+package dev.ujol.hud.renderer;
 
-import java.awt.Color;
-import java.util.ArrayList;
-
-import kim.amar.config.HUDConfig;
+import dev.ujol.config.HUDConfig;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.enchantment.Enchantment;
@@ -15,6 +12,9 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
+
+import java.awt.*;
+import java.util.ArrayList;
 
 public class EquipmentsRenderer extends Renderer {
     public EquipmentsRenderer(ClientPlayerEntity player, DrawContext drawContext) {

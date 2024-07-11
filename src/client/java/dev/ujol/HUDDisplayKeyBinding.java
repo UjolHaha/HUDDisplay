@@ -1,4 +1,4 @@
-package kim.amar;
+package dev.ujol;
 
 import org.lwjgl.glfw.GLFW;
 
