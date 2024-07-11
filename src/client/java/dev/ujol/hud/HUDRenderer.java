@@ -19,7 +19,7 @@ public class HUDRenderer implements HudRenderCallback {
         if (client != null) {
             assert client.player != null;
             HUDConfig config = HUDConfig.instance();
-            if (config.enabled) {
+            if (!client.isPaused() && !client.options.hudHidden && config.enabled) {
                 new FPSRenderer(drawContext);
                 new CoordinatesRenderer(client.player, drawContext);
                 new TimeRenderer(client.player, drawContext);
