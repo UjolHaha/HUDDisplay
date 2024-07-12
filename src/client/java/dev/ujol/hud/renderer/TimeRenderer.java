@@ -15,7 +15,6 @@ public class TimeRenderer extends Renderer {
             String formattedTime = String.format("%02d:%02d", hours, minutes);
             int formattedTimeWidth = calculateBackgroundWidth(formattedTime);
 
-
             int x = (int) ((client.getWindow().getScaledWidth()) * config.timeXPercentage / 100.0) - 3;
             int y = (int) (client.getWindow().getScaledHeight() * config.timeYPercentage / 100.0) - 3;
 
