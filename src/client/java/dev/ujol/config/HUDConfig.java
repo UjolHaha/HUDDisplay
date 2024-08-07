@@ -36,7 +36,7 @@ public class HUDConfig {
     @AutoGen(category = "general", group = "equipments")
     @IntField
     @SerialEntry
-    public int equipmentsYOffset = 100;
+    public int equipmentsYOffset = 150;
     @AutoGen(category = "general", group = "equipments")
     @ColorField(allowAlpha = true)
     @SerialEntry
