@@ -3,14 +3,8 @@ package dev.ujol.hud.renderer;
 import dev.ujol.config.HUDConfig;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 
 import java.awt.*;
@@ -19,11 +13,8 @@ import java.util.ArrayList;
 public class EquipmentsRenderer extends Renderer {
     public EquipmentsRenderer(ClientPlayerEntity player, DrawContext drawContext) {
         HUDConfig config = HUDConfig.instance();
-        if (config.armorAndItemEnabled) {
+        if (config.equipmentsEnabled) {
             renderArmorAndHands(player, drawContext, config);
-        }
-        if (config.elytraTimeEnabled) {
-            renderElytra(player, drawContext, config);
         }
     }
 
@@ -44,54 +35,35 @@ public class EquipmentsRenderer extends Renderer {
             }
         }
 
-        int x = (int) (client.getWindow().getScaledWidth() * config.armorAndItemXPercentage / 100.0);
-        int y = (int) (client.getWindow().getScaledHeight() * config.armorAndItemYPercentage / 100.0);
         String widestText = getWidestItemText(equipments);
         int widthBackground = calculateBackgroundWidth(widestText);
 
+        int x = config.equipmentsXOffset;
+        int y = config.equipmentsYOffset;
+
+        double guiScale = client.getWindow().getScaleFactor();
+        if (guiScale > 0) {
+            x /= (int) guiScale;
+            y /= (int) guiScale;
+        }
+
+        int maxX = client.getWindow().getScaledWidth() - (widthBackground + 30);
+        int maxY = client.getWindow().getScaledHeight() - (16 * equippedItems.size() + 10);
+        x = Math.min(x, maxX);
+        y = Math.min(y, maxY);
+
         if (!equippedItems.isEmpty()) {
-            renderBackground(drawContext, x - 3, y - 3, 25 + widthBackground, 16 * equippedItems.size() + 6, config.armorAndItemBgColor);
+            renderBackground(drawContext, x, y, widthBackground + 30, 16 * equippedItems.size() + 10, config.equipmentsBgColor);
         }
 
         int iconSize = 16;
         int numberOfItems = 0;
         for (ItemStack equipment : equipments) {
             if (!equipment.isEmpty()) {
-                renderItemWithDurability(drawContext, x, y + numberOfItems * iconSize, equipment, iconSize, config.armorAndItemTextColor);
+                renderItemWithDurability(drawContext, x + 5, y + 5 + numberOfItems * iconSize, equipment, iconSize, config.equipmentsTextColor);
                 numberOfItems++;
             }
         }
-    }
-
-    private void renderElytra(ClientPlayerEntity player, DrawContext drawContext, HUDConfig config) {
-        ItemStack chestplate = player.getEquippedStack(EquipmentSlot.CHEST);
-        if (chestplate.getItem() == Items.ELYTRA) {
-            assert client.world != null;
-            RegistryEntry<Enchantment> entry = client.world.getRegistryManager().get(RegistryKeys.ENCHANTMENT).getEntry(Enchantments.UNBREAKING).get();
-            int unbreakingLevel = EnchantmentHelper.getLevel(entry, chestplate);
-            int timeRemaining = determineTimeLeft(chestplate) - unbreakingLevel;
-            String elytraTimeLeftString = formatTime(timeRemaining);
-            int elytraTimeLeftWidth = calculateBackgroundWidth(elytraTimeLeftString);
-
-            int x = (int) ((client.getWindow().getScaledWidth()) * config.elytraTimeXPercentage / 100.0) - 3;
-            int y = (int) (client.getWindow().getScaledHeight() * config.elytraTimeYPercentage / 100.0) - 3;
-
-            renderBackground(drawContext, x, y, elytraTimeLeftWidth + 10, 17, config.elytraTimeBgColor);
-            renderText(drawContext, Text.of(elytraTimeLeftString), x + 5, y + 5, config.elytraTimeTextColor);
-        }
-    }
-
-    private int determineTimeLeft(ItemStack item) {
-        assert client.world != null;
-        RegistryEntry<Enchantment> entry = client.world.getRegistryManager().get(RegistryKeys.ENCHANTMENT).getEntry(Enchantments.UNBREAKING).get();
-        int unbreakingLevel = EnchantmentHelper.getLevel(entry, item);
-        return ((item.getMaxDamage() - item.getDamage()) * (unbreakingLevel + 1)) - 1;
-    }
-
-    private String formatTime(int seconds) {
-        int minutes = seconds / 60;
-        seconds %= 60;
-        return String.format("%02d:%02d", minutes, seconds);
     }
 
     private String getWidestItemText(ItemStack[] items) {
