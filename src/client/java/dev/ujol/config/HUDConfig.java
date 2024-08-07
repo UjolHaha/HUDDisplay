@@ -25,27 +25,6 @@ public class HUDConfig {
     @SerialEntry
     public boolean enabled = true;
 
-    @AutoGen(category = "general", group = "equipments")
-    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-    @SerialEntry
-    public boolean equipmentsEnabled = true;
-    @AutoGen(category = "general", group = "equipments")
-    @IntField
-    @SerialEntry
-    public int equipmentsXOffset = 0;
-    @AutoGen(category = "general", group = "equipments")
-    @IntField
-    @SerialEntry
-    public int equipmentsYOffset = 150;
-    @AutoGen(category = "general", group = "equipments")
-    @ColorField(allowAlpha = true)
-    @SerialEntry
-    public Color equipmentsTextColor = Color.white;
-    @AutoGen(category = "general", group = "equipments")
-    @ColorField(allowAlpha = true)
-    @SerialEntry
-    public Color equipmentsBgColor = new Color(0x80000000, true);
-
     @AutoGen(category = "general", group = "info")
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
@@ -66,6 +45,27 @@ public class HUDConfig {
     @ColorField(allowAlpha = true)
     @SerialEntry
     public Color infoBgColor = new Color(0x80000000, true);
+
+    @AutoGen(category = "general", group = "equipments")
+    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+    @SerialEntry
+    public boolean equipmentsEnabled = true;
+    @AutoGen(category = "general", group = "equipments")
+    @IntField
+    @SerialEntry
+    public int equipmentsXOffset = 0;
+    @AutoGen(category = "general", group = "equipments")
+    @IntField
+    @SerialEntry
+    public int equipmentsYOffset = 150;
+    @AutoGen(category = "general", group = "equipments")
+    @ColorField(allowAlpha = true)
+    @SerialEntry
+    public Color equipmentsTextColor = Color.white;
+    @AutoGen(category = "general", group = "equipments")
+    @ColorField(allowAlpha = true)
+    @SerialEntry
+    public Color equipmentsBgColor = new Color(0x80000000, true);
 
     public static void load() {
         HANDLER.load();
