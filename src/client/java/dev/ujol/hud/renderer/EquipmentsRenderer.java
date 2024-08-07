@@ -91,4 +91,3 @@ public class EquipmentsRenderer extends Renderer {
         }
     }
 }
-
