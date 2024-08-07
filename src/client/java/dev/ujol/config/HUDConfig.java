@@ -2,10 +2,8 @@ package dev.ujol.config;
 
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
-import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
+import dev.isxander.yacl3.config.v2.api.autogen.*;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
-import dev.isxander.yacl3.config.v2.api.autogen.ColorField;
-import dev.isxander.yacl3.config.v2.api.autogen.IntSlider;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import dev.ujol.HUDDisplayClient;
@@ -27,110 +25,47 @@ public class HUDConfig {
     @SerialEntry
     public boolean enabled = true;
 
-    @AutoGen(category = "coordinate")
+    @AutoGen(category = "general", group = "equipments")
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
-    public boolean coordinateEnabled = true;
-    @AutoGen(category = "coordinate")
-    @IntSlider(min = 1, max = 100, step = 1)
+    public boolean equipmentsEnabled = true;
+    @AutoGen(category = "general", group = "equipments")
+    @IntField
     @SerialEntry
-    public int coordinateXPercentage = 1;
-    @AutoGen(category = "coordinate")
-    @IntSlider(min = 1, max = 100, step = 1)
+    public int equipmentsXOffset = 0;
+    @AutoGen(category = "general", group = "equipments")
+    @IntField
     @SerialEntry
-    public int coordinateYPercentage = 8;
-    @AutoGen(category = "coordinate")
+    public int equipmentsYOffset = 100;
+    @AutoGen(category = "general", group = "equipments")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color coordinateTextColor = Color.white;
-    @AutoGen(category = "coordinate")
+    public Color equipmentsTextColor = Color.white;
+    @AutoGen(category = "general", group = "equipments")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color coordinateBgColor = new Color(0x80000000, true);
+    public Color equipmentsBgColor = new Color(0x80000000, true);
 
-    @AutoGen(category = "armorAndItem")
+    @AutoGen(category = "general", group = "info")
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
-    public boolean armorAndItemEnabled = true;
-    @AutoGen(category = "armorAndItem")
-    @IntSlider(min = 1, max = 100, step = 1)
+    public boolean infoEnabled = true;
+    @AutoGen(category = "general", group = "info")
+    @IntField
     @SerialEntry
-    public int armorAndItemXPercentage = 1;
-    @AutoGen(category = "armorAndItem")
-    @IntSlider(min = 1, max = 100, step = 1)
+    public int infoXOffset = 0;
+    @AutoGen(category = "general", group = "info")
+    @IntField
     @SerialEntry
-    public int armorAndItemYPercentage = 40;
-    @AutoGen(category = "armorAndItem")
+    public int infoYOffset = 0;
+    @AutoGen(category = "general", group = "info")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color armorAndItemTextColor = Color.white;
-    @AutoGen(category = "armorAndItem")
+    public Color infoTextColor = Color.white;
+    @AutoGen(category = "general", group = "info")
     @ColorField(allowAlpha = true)
     @SerialEntry
-    public Color armorAndItemBgColor = new Color(0x80000000, true);
-
-    @AutoGen(category = "elytraTime")
-    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-    @SerialEntry
-    public boolean elytraTimeEnabled = true;
-    @AutoGen(category = "elytraTime")
-    @IntSlider(min = 1, max = 100, step = 1)
-    @SerialEntry
-    public int elytraTimeXPercentage = 7;
-    @AutoGen(category = "elytraTime")
-    @IntSlider(min = 1, max = 100, step = 1)
-    @SerialEntry
-    public int elytraTimeYPercentage = 2;
-    @AutoGen(category = "elytraTime")
-    @ColorField(allowAlpha = true)
-    @SerialEntry
-    public Color elytraTimeTextColor = Color.white;
-    @AutoGen(category = "elytraTime")
-    @ColorField(allowAlpha = true)
-    @SerialEntry
-    public Color elytraTimeBgColor = new Color(0x80000000, true);
-
-    @AutoGen(category = "time")
-    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-    @SerialEntry
-    public boolean timeEnabled = true;
-    @AutoGen(category = "time")
-    @IntSlider(min = 1, max = 100, step = 1)
-    @SerialEntry
-    public int timeXPercentage = 1;
-    @AutoGen(category = "time")
-    @IntSlider(min = 1, max = 100, step = 1)
-    @SerialEntry
-    public int timeYPercentage = 2;
-    @AutoGen(category = "time")
-    @ColorField(allowAlpha = true)
-    @SerialEntry
-    public Color timeTextColor = Color.white;
-    @AutoGen(category = "time")
-    @ColorField(allowAlpha = true)
-    @SerialEntry
-    public Color timeBgColor = new Color(0x80000000, true);
-
-    @AutoGen(category = "fps")
-    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-    @SerialEntry
-    public boolean fpsEnabled = true;
-    @AutoGen(category = "fps")
-    @IntSlider(min = 1, max = 100, step = 1)
-    @SerialEntry
-    public int fpsXPercentage = 98;
-    @AutoGen(category = "fps")
-    @IntSlider(min = 1, max = 100, step = 1)
-    @SerialEntry
-    public int fpsYPercentage = 2;
-    @AutoGen(category = "fps")
-    @ColorField(allowAlpha = true)
-    @SerialEntry
-    public Color fpsTextColor = Color.white;
-    @AutoGen(category = "fps")
-    @ColorField(allowAlpha = true)
-    @SerialEntry
-    public Color fpsBgColor = new Color(0x80000000, true);
+    public Color infoBgColor = new Color(0x80000000, true);
 
     public static void load() {
         HANDLER.load();
