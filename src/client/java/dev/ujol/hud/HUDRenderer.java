@@ -1,10 +1,8 @@
 package dev.ujol.hud;
 
 import dev.ujol.config.HUDConfig;
-import dev.ujol.hud.renderer.CoordinatesRenderer;
 import dev.ujol.hud.renderer.EquipmentsRenderer;
-import dev.ujol.hud.renderer.FPSRenderer;
-import dev.ujol.hud.renderer.TimeRenderer;
+import dev.ujol.hud.renderer.InfoRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -20,10 +18,8 @@ public class HUDRenderer implements HudRenderCallback {
             assert client.player != null;
             HUDConfig config = HUDConfig.instance();
 
-            if (!client.options.hudHidden && config.enabled) {
-                new FPSRenderer(drawContext);
-                new CoordinatesRenderer(client.player, drawContext);
-                new TimeRenderer(client.player, drawContext);
+            if (!client.options.hudHidden && !client.getDebugHud().shouldShowDebugHud() && config.enabled) {
+                new InfoRenderer(client.player, drawContext);
                 new EquipmentsRenderer(client.player, drawContext);
             }
         }
