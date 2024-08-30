@@ -12,7 +12,7 @@
     "sources": "https://github.com/UjolHaha/HUDDisplay"
   },
   "license": "CC0-1.0",
-  "icon": "assets/huddisplay/icon.png",
+  "icon": "assets/huddisplay/HUDDisplay.png",
   "environment": "*",
   "entrypoints": {
     "modmenu": [
